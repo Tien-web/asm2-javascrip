@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>học về sự kiện ngoài sự kiện Onclick</title>
+    <style>
+        .block {
+            width: 100%;
+            height: 100%;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <!--onchange => thay đổi sự kiện trong HTML elements-->
+    <input onkeydown="langNgheAnBanPhim(event)" onchange="langNgheThayDoiDuLieu(event)" type="number" placeholder="soLuongSP">
+
+    <!--onmouseover - onmouseout: -->
+    <div onmouseover="langNgheSuKienReChuotVao(event)" onmouseout="langNgheSuKienReChuotRa(event)" class="block">
+
+    </div>
+
+    <script>
+        function thayDoiSoLuong(event) {
+            console.log(event.type);
+            console.log(event.target);
+            var nodeThayDoi = event.target;
+            var giTriSauKhiThayDoi = nodeThayDoi.value;
+
+            /*id sản phẩm; giá trị sau khi thay đổi => cập nhật localstorage theo idSanPham*/
+            console.log('Giá trị sau khi thay đổi: ' + giTriSauKhiThayDoi);
+        }
+
+        function langNgheThayDoiDuLieu(event) {
+            console.log(event);
+
+            /*Loại event*/
+            console.log('Loại event là: ' + event.type);
+
+            /*Event từ node nào*/
+            console.log('event xuất từ node');
+            console.log(event.target);
+
+        }
+
+        function langNgheSuKienReChuotVao(event) {
+            console.log(event.type);
+            console.log(event.target);
+        }
+
+        function langNgheSuKienReChuotRa(event) {
+            console.log(event.type);
+            console.log(event.target);
+        }
+
+        function langNgheAnBanPhim(event) {
+            console.log(event.type);
+            console.log(event.target);
+        }
+    </script>
+
+</body>
+
+</html>

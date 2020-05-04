@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học về form validation</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .form {
+            width: 30%;
+            border: 1px solid #ddd;
+            box-shadow: 2px 2px 4px #ddd;
+            padding: 30px;
+            border-radius: 5px;
+            margin: 0 auto;
+        }
+
+        .form label, input, button {
+            width: 100%;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .form input, button {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form .errol {
+            font-size: 12px;
+            font-style: italic;
+            color: red;
+            line-height: 12px;
+            height: 12px;
+        }
+
+        .btn {
+            background-color: orange;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form">
+        <label for="hoTen">Họ tên</label>
+        <input type="text" id="hoTen">
+        <label id="thongBaoLoiChoHoTen" for="hoTen" class="errol"></label>
+
+        <label for="soDienThoai">Số điện thoại</label>
+        <input type="number" id="soDienThoai">
+        <label id="thongBaoLoiChoSDT" for="soDienThoai" class="errol"></label>
+
+        <!--Thêm 50 trường-->
+        <!--Thư viện-->
+        <!--Tự tạo ra thư viện-->
+
+        <button onclick="dangKi()" class="btn">Đăng kí</button>
+    </div>
+    
+    <script>
+        function dangKi() {
+            /*B1. Kiểm tra xem dữ liệu có hợp lệ không*/
+            if (kiemTraHopLeFormDangKi() == true) {
+                  /*B2. Thực hiện đăngklý*/
+                  console.log("Thực hiện đăng kí");
+            }
+
+        }
+
+        /*Mô tả: Kiểm tra form đăng kí có hợp lệ không: Nếu có thì trả về true, không thì trả về false*/
+        function kiemTraHopLeFormDangKi() {
+            var hople = true;
+            //Kiểm tra hợp lệ
+            /*B1. Truy cập node để lấy dữ liệu*/
+            var nodeHoTen = document.getElementById('hoTen');
+            var nodeSoDienThoai = document.getElementById('soDienThoai');
+            var hoTen = nodeHoTen.value;
+            var soDienThoai = nodeSoDienThoai.value;
+            console.log('Họ tên là:' + hoTen);
+            console.log('Số điện thoại là: ' + soDienThoai);
+
+            var nodeThongBaoLoiHoTen = document.getElementById('thongBaoLoiChoHoTen');
+            var nodeThongBaoLoiSoDienThoai = document.getElementById('thongBaoLoiChoSDT');
+
+            /*B2. Kiểm tra dữ liệu có hợp lệ không -> tên và số điện thoại có để trống không*/
+           if (hoTen == null || hoTen.length <= 0) {
+               alert('Họ tên không được để trống');
+               nodeThongBaoLoiHoTen.innerHTML = 'Họ tên không được để trống';
+               hople = false;
+           }
+           
+            if (soDienThoai == null || soDienThoai.length < 10 || soDienThoai.length > 11) {
+                alert('Số điện thoại không hợp lệ');
+                nodeThongBaoLoiSoDienThoai.innerHTML = 'Số điện thoại không hợp lệ';
+                hople = false;
+            }
+
+            return hople;
+
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">  
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script></script>
+    <style>
+        .box {
+            border: 1px solid black;
+            background-color: #ddd;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <!--đề bài-->
+    <p class="debai">
+        Xuất ra danh sách số nguyên tố nhỏ nhất
+    </p>
+    <!--input-->
+    <label for="inputSoLuongSoNguyenTo">Nhập vào số lượng số nguyên tố muốn xuất ra</label>
+    <input type="number" id="inputSoLuongNguyenTo">
+
+    <!--button hành động-->
+    <button onClick="onClickXuatRaSoNguyenTo()">Xuất kết quả</button>
+
+    <!--Kết quả-->
+    <p>Kết quả</p>
+    <p id="ketQuaDaySoNguyenTo">
+
+    </p>
+</div>
+
+<script>
+    function onClickXuatRaSoNguyenTo() {
+        /*B1: truy cập node inputSoLuongSoNguyenTo để lấy ra số lượng số nguyên tố muốn xuất ra*/
+            var nodeInputSoLuongSoNguyenTo = document.getElementById('inputSoLuongNguyenTo');
+            var N = nodeInputSoLuongSoNguyenTo.value;
+            console.log('Bài nguyên tố - N là: '+ N)
+
+        /*B2: gọi hàm trong file nguyento.js để lấy được danh sách N số nguyên tố nhỏ nhất*/
+            var danhSachSoNguyenTo = layDanhSachNSoNguyenToNhoNhat(N);
+            console.log('Bài nguyên tố - danh sách số nguyên tố là:' + danhSachSoNguyenTo)
+        /*B3: truy cập vào node ketQuaDaySoNguyenTo để ghi danh sách số nguyên tố n*/
+            var nodeKetQuaDaySoNguyenTo = document.getElementById('ketQuaDaySoNguyenTo');
+            console.log(nodeKetQuaDaySoNguyenTo)
+            nodeKetQuaDaySoNguyenTo.innerHTML = danhSachSoNguyenTo;
+    }
+</script>
+
+</body>
+</html>
+
+
+
+
+

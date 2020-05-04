@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">  
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Định nghĩa đối tượng</title>
+    
+</head>
+
+<body>
+    <script>
+        /* 1. Tạo đối tượng.
+           2. Thêm các thuộc tính cho đối tượng.
+           3. Viết phuong thức cho đối tượng.
+           4. Sử dụng đối tượng: 
+                - Sử dụng thuộc tính của đối tượng.
+                - Sử dụng phương thức của đối tượng.
+        */
+       
+        /* 1. Tạo đối tượng*/
+            var dienThoaiXiaoMi = new Object();
+            console.log(dienThoaiXiaoMi);
+
+        /*2. Thêm các thuộc tính cho đối tượng.*/
+            dienThoaiXiaoMi.ten = 'XiaoMi Redmi';
+            dienThoaiXiaoMi.giaGoc = 3000000;
+            dienThoaiXiaoMi.phanTramGiamGia = 20;
+
+        /*3. Viết phuong thức cho đối tượng.*/
+            dienThoaiXiaoMi.tinhGiaBan = function() {
+                /*this = nó = object hiện tại = dienThoaiXiaoMi*/
+                var giaBan = this.giaGoc * (100 - this.phanTramGiamGia)/100;
+                return giaBan;
+            }
+
+            console.log(dienThoaiXiaoMi);
+
+        /*4. Cách sử dụng.*/
+            /*- Sử dụng thuộc tính*/
+            console.log('Tên điện thoại Xiaomi là: ' + dienThoaiXiaoMi.ten);
+
+            /*- Sử dụng phương thức*/
+            console.log("Giá bán của điện thoại Xiaomi là: " + dienThoaiXiaoMi.tinhGiaBan());
+
+    </script>
+
+
+</body>
+</html>
+
+
+
+
+

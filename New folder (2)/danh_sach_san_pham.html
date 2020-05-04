@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách sản phẩm</title>
+</head>
+<body>
+
+
+
+
+    <footer>
+        Copyright by @AleEdu 2020
+    </footer>
+
+    <script>
+        /* B1. Tạo ra danh sách sản phẩm => load danh sách sản phẩm từ local storage lên */
+        var jsonDanhSachSanPham = localStorage.getItem('danhSachSanPham');
+        var danhSachSanPham = JSON.parse(jsonDanhSachSanPham);
+        if (danhSachSanPham == null)
+            danhSachSanPham = new Array();
+
+        /* B2. Chuyển danh sách đối tượng sản phẩm sang đoạn HTML */
+        var HTML = chuyenDanhSachDoiTuongSanPhamThanhHTML(danhSachSanPham);
+
+        /* B3. Gắn đoạn HTML đó vào section products */
+        var nodeProducts = document.getElementById('products');
+        nodeProducts.innerHTML = HTML;
+    </script>
+</body>
+</html>

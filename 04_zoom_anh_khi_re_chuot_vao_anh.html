@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .san-pham {
+            max-width: 1100px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            margin: auto;
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .item-san-pham {
+            width: 20%;
+            padding: 20px;
+            border: 1px solid #ddd;
+            position: relative;
+        }
+
+        .item-san-pham .hinhanh .zoom {
+            width: 200%;
+            position: absolute;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #fff;
+            top: 20px;
+            left: 20px;
+            display: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="san-pham">
+        <div class="item-san-pham">
+            <div class="hinhanh">
+
+                <img onmouseover="hienThiZoomAnh(event)" src="https://cdn.tgdd.vn/Products/Images/42/149456/iphone-se-2020-2.jpg">
+                <div onmouseleave="anZoomAnh(event)" class="zoom">
+                    <img src="https://cdn.tgdd.vn/Products/Images/42/149456/iphone-se-2020-2.jpg">
+                    <h1 class="ten">iPhone SE 2020</h1>
+                    <p class="mota">iPhone SE 2020 vẫn có kích thước 4.7 inch, tỉ lệ màn hình cũ 16:9 và các cạnh viền vẫn dày. 
+                        Tuy nhiền kích thước chung của máy vẫn thuộc hàng nhỏ gọn, cực kì vừa vặn và dễ sử dụng bằng một tay.</p>
+                </div>
+                
+
+            </div>
+             
+        </div>
+
+    </div>
+
+    <script>
+        function hienThiZoomAnh(event) {
+            /*B1. Truy xuất vào node zoom*/
+            /*event -> node hiện tại -> node cha -> node con có class-zoom*/
+            console.log(event.target);
+
+            var nodeCha = event.target.parentElement;
+            console.log('node cha là:');
+            console.log(nodeCha);
+
+            var nodeZoom = nodeCha.getElementsByClassName('zoom')[0];
+            console.log('node zoom là:');
+            console.log(nodeZoom);
+
+            /*B2. Chuyển trạng thái node zoom sang dạng hiển thị*/
+            nodeZoom.style.display = 'block';
+
+        }
+
+        function anZoomAnh(event) {
+            event.target.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

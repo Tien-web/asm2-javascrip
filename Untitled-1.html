@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">  
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiển thị đối tượng</title>
+
+    <style>
+        .item {
+            border: 1px solid #ddd;
+            padding: 20px;
+        }
+        
+        .item .item-tieu-de {
+            font-size: 20px;
+            line-height: 28px;
+            color: #444;
+        }
+
+        .item .item-gia-ban {
+            color: #888;
+            font-size: 12px;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <!--B1: Định nghĩa HTML + CSS cho đối tượng -> chỉ làm layout-->
+    <!--tên; giá gốc; giá bán; % giảm giá-->
+    <div class="items">
+        <div class="item">
+            <h1 class="item-tieu-de">Xiaomi Redminote</h1>
+            <span class="item-gia-goc">5000.000 VND</span>
+            <span class="item-gia-ban">6000.000 VND</span>
+        </div>    
+    </div>
+
+
+    <!--B2: Chuyển đối tượng -> HTML bằng Javacript-->
+    <script>
+        /*Chuyển một đối tượng, hiển thị lên HTML*/
+        var dienThoaiIphone5 = TaoRaDoiTuongSanPham('Iphone 5', 8000000, 20);
+        console.log(dienThoaiIphone5);
+
+
+        /*B2.1: Từ đối tượng -> đoạn HTML*/
+        var htmlItem = ' ';
+            htmlItem = htmlItem + "<div class='item'";
+            htmlItem = htmlItem 
+    </script>
+
+</body>
+</html>
+
+
+
+
+

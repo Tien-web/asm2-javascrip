@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đối tượng thành giao diện</title>
+    <script src="sanpham.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+
+        }
+        img {
+            width: 100%;
+
+        }
+
+        #hien-thi-san-pham {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .san-pham {
+            width: calc(25% - 40px);
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 10px 20px;
+
+        }
+
+        .ten-san-pham {
+            font-size: 20px;
+            line-height: 30px;
+
+        }
+
+        .gia-goc-san-pham {
+            font-size: 12px;
+            color:#666;
+            text-decoration: line-through;
+
+        }
+
+        .khu-vuc-san-pham {
+            font-size: 14px;
+            color: #666;  
+            text-align: right;
+
+        }
+    </style>
+</head>
+<body>
+    <!--Hiển thị menu-->
+    <nav class="nav_bar">
+
+    </nav>
+    <main>
+        <section class="slider">
+            
+        </section>
+        <div id="hien-thi-san-pham">
+
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+    <script>
+        /* B1. Tạo ra đối tượng*/
+        var sanPhamIphone5 = new Object();
+        sanPhamIphone5.hinhAnh = 'https://cdn.tgdd.vn/Products/Images/42/60546/iphone-5s-16gb-13-300x300.jpg';
+        sanPhamIphone5.ten = 'Iphone 5 32GB';
+        sanPhamIphone5.giaGoc = 5000000;
+        sanPhamIphone5.phanTramGiamGia = 15;
+        sanPhamIphone5.khuVuc = 'Hà Nội';
+        console.log(sanPhamIphone5);
+
+
+
+
+
+        /* B2. Chuyển đối tượng trở thành một đoạn HTML*/
+        var danhSachSanPham = new Array();
+        danhSachSanPham.push(sanPhamIphone5);
+        danhSachSanPham.push(sanPhamIphone5);
+        danhSachSanPham.push(sanPhamIphone5);
+           
+       
+
+        console.log(danhSachSanPham);
+        var html = chuyenDanhSachSanPhamSangHTML(danhSachSanPham);
+        console.log('HTML của đối tượng là: ' + html);
+
+
+
+
+
+        /* B3. Hiển thị đoạn HTML ra giao diện*/
+            /* B3.1. Truy cập node để hiển thị*/
+            var nodeHienThiSanPham = document.getElementById('hien-thi-san-pham');
+            console.log(nodeHienThiSanPham);
+
+            /* B3.2. Ghi HTML ra node*/
+            nodeHienThiSanPham.innerHTML = html;
+
+    </script>
+</body>
+</html>
